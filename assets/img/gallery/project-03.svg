@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="884" height="806" viewBox="0 0 884 806">
+  <!-- Placeholder photo. Replace with a real project photo (same name, or update src/data.js). -->
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#262d2b"/><stop offset="1" stop-color="#121615"/></linearGradient></defs>
+  <rect width="884" height="806" fill="url(#g)"/>
+  <g fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="10" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="352" y="303" width="180" height="140" rx="18"/>
+    <path d="M362 423l56-56 44 44 26-26 44 44"/>
+  </g>
+  <circle cx="496" cy="342" r="14" fill="#fff" fill-opacity=".35"/>
+  <text x="442" y="505" text-anchor="middle" fill="#fff" fill-opacity=".5" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="600" letter-spacing="3">PROJECT PHOTO 03</text>
+</svg>
