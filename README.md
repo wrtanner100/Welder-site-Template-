@@ -1,5 +1,7 @@
 # Local Business Website Template
 
+> **Currently set up for Deyo Contractors** (fences & gates, Heber Springs, AR). The logo is a text placeholder in `logo()` in `src/layout.js`. Assets saved from the old deyocontractors.com site are in `brand-assets/deyocontractors-com/` for reference only and are not used on the site.
+
 A fast, modern, mobile-first website for **any small local business**: trades, home services, salons, clinics, auto shops, cleaners, landscapers, and so on.
 
 It's plain HTML, CSS and a little JavaScript. There are no frameworks and no dependencies, and it hosts free on Vercel, Netlify, Cloudflare Pages or GitHub Pages.
