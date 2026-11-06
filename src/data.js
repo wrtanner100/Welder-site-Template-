@@ -199,8 +199,8 @@ const servicesPage = {
     eyebrow: 'Featured',
     heading: 'Custom Logo Entrance Package',
     text: 'A 20’ double entry gate with your custom logo, built and installed as a complete project. Choose the entry style that fits your property, then add the upgrades you want.',
-    photo: 'services/stone-pillar-entrance-gate.jpg',
-    photoAlt: 'Stone pillar entrance with a black double drive gate',
+    photo: 'hero.jpg', // same file as the homepage hero, so it's already cached
+    photoAlt: 'Stone pillar entrance with lanterns and a black and wood double drive gate',
     options: [
       {
         label: 'Option 1',
