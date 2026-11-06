@@ -161,33 +161,40 @@
         if (bad) valid = false;
       });
       const email = form.elements.email;
-      if (email.value && !email.checkValidity()) { email.classList.add('invalid'); valid = false; }
+      if (email && email.value && !email.checkValidity()) { email.classList.add('invalid'); valid = false; }
       if (!valid) {
         status.className = 'form-status err';
-        status.textContent = 'Please add your name, phone number and a few details about the job.';
+        status.textContent = form.elements.message
+          ? 'Please add your name, phone number and a few details about the job.'
+          : 'Please fill in every field so we can price your project.';
         return;
       }
       const d = Object.fromEntries(new FormData(form));
       const subject = `Free quote request: ${d.service}${d.city ? ` in ${d.city}` : ''}`;
-      const body = [
-        `Name: ${d.name}`,
-        `Phone: ${d.phone}`,
-        `Email: ${d.email || '(not provided)'}`,
-        `City: ${d.city || '(not provided)'}`,
-        `Service: ${d.service}`,
-        '',
-        d.message,
-      ].join('\n');
+      // Fields with data-label (services page project form) are listed in order;
+      // otherwise use the standard quote form layout.
+      const labeled = $$('[data-label]', form);
+      const body = labeled.length
+        ? labeled.map((f) => `${f.dataset.label}: ${f.value.trim()}`).join('\n')
+        : [
+          `Name: ${d.name}`,
+          `Phone: ${d.phone}`,
+          `Email: ${d.email || '(not provided)'}`,
+          `City: ${d.city || '(not provided)'}`,
+          `Service: ${d.service}`,
+          '',
+          d.message,
+        ].join('\n');
       window.location.href = `mailto:${form.dataset.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       status.className = 'form-status ok';
       status.textContent = `Thanks! Your email app should open with your request ready to send. Prefer to talk? Call ${form.dataset.phone}.`;
     });
-    $$('input, textarea', form).forEach((f) => f.addEventListener('input', () => f.classList.remove('invalid')));
+    $$('input, textarea, select', form).forEach((f) => f.addEventListener(f.tagName === 'SELECT' ? 'change' : 'input', () => f.classList.remove('invalid')));
   }
 
   /* ---------- Reveal on scroll ---------- */
   if (!reduceMotion && 'IntersectionObserver' in window) {
-    const targets = $$('.section-head, .service, .work-card, .g-item, .review, .area-card, .focus, .stat, .checks li');
+    const targets = $$('.section-head, .service, .work-card, .g-item, .review, .area-card, .focus, .stat, .checks li, .pkg-card, .upgrade');
     targets.forEach((el) => el.classList.add('reveal'));
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {

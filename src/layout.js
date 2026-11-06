@@ -1,4 +1,4 @@
-const { business: b, copy, services, reviews, cities } = require('./data');
+const { business: b, copy, services, reviews, cities, servicesPage: sp } = require('./data');
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
@@ -95,7 +95,7 @@ const header = ({ root, home }) => {
       ${logo(root)}
       <nav class="nav" aria-label="Main">
         <ul class="nav-menu" id="nav-menu">
-          <li><a href="${h}#services">Services</a></li>
+          <li><a href="${root}services/">Services</a></li>
           <li><a href="${h}#reviews">Reviews</a></li>
           <li><a href="${root}gallery/">Gallery</a></li>
           <li><a href="${root}service-areas/">Service Areas</a></li>
@@ -193,26 +193,51 @@ const ctaArt = () => {
       </svg>`;
 };
 
-const ctaBand = (city) => `
+const ctaBand = (city, cta = copy.cta) => `
   <section class="cta-band">
     <div class="container cta-inner">
-      <h2>${esc(copy.cta.heading)}${city ? ` in ${esc(city)}` : ''}?</h2>
+      <h2>${esc(cta.heading)}${city ? ` in ${esc(city)}` : ''}?</h2>
       <div class="cta-actions">
         <a href="${b.phoneHref}" class="btn btn-black btn-lg">${icons.phone} Call ${b.phone}</a>
-        <a href="#quote" class="btn btn-white btn-lg">${esc(copy.cta.button)}</a>
+        <a href="#quote" class="btn btn-white btn-lg">${esc(cta.button)}</a>
       </div>
       ${ctaArt()}
     </div>
   </section>`;
 
-const contactSection = (city) => `
+// Project quote form (services page): name, phone, package/project, address or town, timeline.
+const projectFields = () => `
+          <div class="form-row">
+            <label><span>Name</span><input type="text" name="name" data-label="Name" required autocomplete="name" /></label>
+            <label><span>Phone</span><input type="tel" name="phone" data-label="Phone" required autocomplete="tel" /></label>
+          </div>
+          <label><span>Which package or project?</span>
+            <select name="service" data-label="Package / project" required>
+              <option value="">Choose one</option>
+              ${sp.quote.projects.map((o) => `<option>${esc(o)}</option>`).join('')}
+            </select>
+          </label>
+          <div class="form-row">
+            <label><span>Property address or town</span><input type="text" name="city" data-label="Property address / town" required autocomplete="street-address" /></label>
+            <label><span>Timeline</span>
+              <select name="timeline" data-label="Timeline" required>
+                <option value="">Choose one</option>
+                ${sp.quote.timelines.map((o) => `<option>${esc(o)}</option>`).join('')}
+              </select>
+            </label>
+          </div>
+          <button type="submit" class="btn btn-red btn-lg">Send My Quote Request</button>`;
+
+const contactSection = (city, variant) => {
+  const q = variant === 'project' ? sp.quote : copy.quote;
+  return `
   <section class="section contact" id="contact">
     <div class="container contact-grid">
       <div id="quote">
-        <p class="eyebrow">${esc(copy.quote.eyebrow)}</p>
-        <h2>${esc(copy.quote.heading)}${city ? ` in ${esc(city)}` : ''}.</h2>
-        <p class="muted">${esc(copy.quote.text)}</p>
-        <form class="quote-form" id="quote-form" data-email="${esc(b.email)}" data-phone="${esc(b.phone)}" novalidate>
+        <p class="eyebrow">${esc(q.eyebrow)}</p>
+        <h2>${esc(q.heading)}${city ? ` in ${esc(city)}` : ''}.</h2>
+        <p class="muted">${esc(q.text)}</p>
+        <form class="quote-form" id="quote-form" data-email="${esc(b.email)}" data-phone="${esc(b.phone)}" novalidate>${variant === 'project' ? projectFields() : `
           <div class="form-row">
             <label><span>Name</span><input type="text" name="name" required autocomplete="name" /></label>
             <label><span>Phone</span><input type="tel" name="phone" required autocomplete="tel" /></label>
@@ -228,7 +253,7 @@ const contactSection = (city) => `
             </select>
           </label>
           <label><span>Details</span><textarea name="message" rows="4" required placeholder="${esc(copy.quote.placeholder)}"></textarea></label>
-          <button type="submit" class="btn btn-red btn-lg">Send My Free Quote Request</button>
+          <button type="submit" class="btn btn-red btn-lg">Send My Free Quote Request</button>`}
           <p class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -244,6 +269,7 @@ const contactSection = (city) => `
       </aside>
     </div>
   </section>`;
+};
 
 const footer = ({ root }) => `
   </main>

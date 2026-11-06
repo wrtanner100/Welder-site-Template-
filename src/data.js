@@ -186,4 +186,110 @@ const cities = [
   },
 ];
 
-module.exports = { business, copy, services, gallery, heroPhoto, heroFallback, works, aboutPhoto, reviews, cities };
+
+// ============================================================================
+// SERVICES PAGE (/services/). Prices shown exactly as written here.
+// Photos live in assets/img/services/ (from the old site; swap for project photos when ready).
+// ============================================================================
+const servicesPage = {
+  hero: {
+    eyebrow: 'Services & Pricing',
+    heading: 'Entrance gates, fences and outdoor construction',
+    lead: 'Big entrance packages and full fence runs up top, plus everyday fencing, decking and construction work. Every price includes labor, materials and complete installation.',
+  },
+  entrance: {
+    eyebrow: 'Featured',
+    heading: 'Custom Logo Entrance Package',
+    text: 'A 20’ double entry gate with your custom logo, built and installed as a complete project. Choose the entry style that fits your property, then add the upgrades you want.',
+    photo: 'services/stone-pillar-entrance-gate.jpg',
+    photoAlt: 'Stone pillar entrance with a black double drive gate',
+    options: [
+      {
+        label: 'Option 1',
+        title: 'Steel Post Entry',
+        note: 'No stone',
+        text: '20’ double entry gate with heavy-duty steel posts.',
+        gate: '$5,500–$8,000',
+        complete: '$19,465–$21,965',
+      },
+      {
+        label: 'Option 2',
+        title: 'Stone Pillars',
+        note: 'No lights',
+        text: '20’ double entry gate with two stone pillars.',
+        gate: '$9,000–$13,000',
+        complete: '$22,965–$26,965',
+      },
+      {
+        label: 'Option 3',
+        title: 'Stone Pillars with Lights',
+        note: 'Decorative lighting',
+        text: '20’ double gate, two stone pillars and decorative lights.',
+        gate: '$10,000–$14,500',
+        complete: '$23,965–$28,465',
+      },
+    ],
+    upgradesHeading: 'Optional upgrades',
+    upgrades: [
+      ['Automatic gate openers (dual)', '$2,500–$6,000'],
+      ['Keypad & remotes', '$250–$1,000'],
+      ['Solar power package', '$2,000–$6,000'],
+      ['Underground electrical service', 'Site dependent'],
+    ],
+  },
+  corrugated: {
+    eyebrow: 'Featured',
+    heading: '8’ Corrugated Metal Fence',
+    text: 'Rustic corrugated steel panels with black ornamental posts and caps. Tall, solid privacy with a clean, finished look.',
+    price: '$95',
+    unit: 'per linear foot, installed',
+    example: 'Example: 147 ft = $13,965',
+    photo: 'services/corrugated-metal-fence.jpg',
+    photoAlt: 'Corrugated metal privacy fence with black steel posts',
+  },
+  trust: [
+    ['Licensed', 'Arkansas Contractor License #0478850127'],
+    ['All-inclusive', 'Labor + materials + complete install'],
+    ['Warranty', '1-year workmanship warranty'],
+  ],
+  more: {
+    eyebrow: 'More Services',
+    heading: 'Fencing, decking and general construction',
+    sections: [
+      {
+        id: 'fencing', title: 'Fencing', icon: 'home', photo: 'services/cedar-privacy-fence.jpg', photoAlt: 'Cedar privacy fence with decorative trim',
+        text: 'Residential and commercial fences built straight and set to last.',
+        items: ['Wood, vinyl & metal privacy fences', 'Chain-link fences', 'Decorative & ornamental fences', 'Pool fences & pet enclosures', 'Walk gates & drive gates', 'Fence repair & staining'],
+      },
+      {
+        id: 'decking', title: 'Decking', icon: 'tools', photo: 'services/decking.jpg', photoAlt: 'Deck project',
+        text: 'Decks that add usable outdoor space and hold up to Arkansas weather.',
+        items: ['Wood decks', 'Composite decks', 'Deck repair & replacement'],
+      },
+      {
+        id: 'construction', title: 'General Construction', icon: 'wrench', photo: 'services/construction.jpg', photoAlt: 'Construction project',
+        text: 'Outdoor living and general construction projects for homes and businesses.',
+        items: ['Outdoor living projects', 'Repairs & replacements', 'Residential & commercial work'],
+      },
+    ],
+  },
+  cta: { heading: 'Ready to price your project', button: 'Request a Quote' },
+  quote: {
+    eyebrow: 'Request a Quote',
+    heading: 'Tell us about your project',
+    text: 'Fill this out and your email app opens with everything ready to send. Or just call or text.',
+    projects: [
+      'Entrance Package: Option 1, Steel Post Entry',
+      'Entrance Package: Option 2, Stone Pillars',
+      'Entrance Package: Option 3, Stone Pillars with Lights',
+      '8’ Corrugated Metal Fence',
+      'Fencing',
+      'Decking',
+      'General construction',
+      'Not sure yet',
+    ],
+    timelines: ['As soon as possible', 'Within 1–3 months', '3–6 months', 'Just planning / getting prices'],
+  },
+};
+
+module.exports = { business, copy, services, gallery, heroPhoto, heroFallback, works, aboutPhoto, reviews, cities, servicesPage };

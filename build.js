@@ -72,6 +72,7 @@ const home = `
           <p class="muted">${esc(copy.services.text)}</p>
         </div>
         ${L.serviceBoxes()}
+        <div class="center-actions"><a href="services/" class="btn btn-outline-light">View services &amp; pricing ${L.icons.arrow}</a></div>
       </div>
     </section>
 
@@ -177,6 +178,116 @@ write('gallery/index.html', page({
   description: `Photos of recent projects by ${b.name}.`,
   jsonLd: L.localBusiness(),
   body: galleryBody,
+}));
+
+/* ------------------------------ Services ------------------------------ */
+const { servicesPage: sp } = require('./src/data');
+const en = sp.entrance;
+const cg = sp.corrugated;
+const servicesBody = `
+    <section class="page-hero">
+      <div class="container">
+        <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a> / <span>Services</span></nav>
+        <p class="eyebrow">${esc(sp.hero.eyebrow)}</p>
+        <h1>${esc(sp.hero.heading)}</h1>
+        <p class="hero-lead">${esc(sp.hero.lead)}</p>
+        <div class="hero-actions">
+          <a href="${b.phoneHref}" class="btn btn-red btn-xl">${L.icons.phone} Call ${b.phone}</a>
+          <a href="#quote" class="btn btn-light btn-xl">${esc(sp.cta.button)}</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pkg-section" id="entrance-packages">
+      <div class="container">
+        <div class="pkg-intro">
+          <div class="pkg-photo">${L.slot(en.photo, '', en.photoAlt)}</div>
+          <div>
+            <p class="eyebrow">${esc(en.eyebrow)}</p>
+            <h2>${esc(en.heading)}</h2>
+            <p class="muted">${esc(en.text)}</p>
+          </div>
+        </div>
+        <div class="pkg-grid">
+          ${en.options.map((o) => `
+          <article class="pkg-card">
+            <p class="pkg-label">${esc(o.label)}</p>
+            <h3>${esc(o.title)}</h3>
+            <p class="pkg-note">${esc(o.note)}</p>
+            <p class="pkg-text">${esc(o.text)}</p>
+            <dl class="pkg-prices">
+              <div><dt>Gate only</dt><dd>${esc(o.gate)}</dd></div>
+              <div class="pkg-total"><dt>Complete project</dt><dd>${esc(o.complete)}</dd></div>
+            </dl>
+            <a href="#quote" class="text-link">Get a quote for ${esc(o.label)} ${L.icons.arrow}</a>
+          </article>`).join('')}
+        </div>
+        <div class="upgrades">
+          <h3>${esc(en.upgradesHeading)}</h3>
+          <ul class="upgrade-list">
+            ${en.upgrades.map(([name, price]) => `<li class="upgrade"><span>${esc(name)}</span><strong>${esc(price)}</strong></li>`).join('\n            ')}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pkg-section pkg-alt" id="corrugated-fence">
+      <div class="container pkg-intro pkg-intro-flip">
+        <div>
+          <p class="eyebrow">${esc(cg.eyebrow)}</p>
+          <h2>${esc(cg.heading)}</h2>
+          <p class="muted">${esc(cg.text)}</p>
+          <div class="price-block">
+            <strong>${esc(cg.price)}</strong>
+            <span>${esc(cg.unit)}</span>
+          </div>
+          <p class="price-example">${esc(cg.example)}</p>
+          <a href="#quote" class="btn btn-red btn-lg">Get a fence quote</a>
+        </div>
+        <div class="pkg-photo">${L.slot(cg.photo, '', cg.photoAlt)}</div>
+      </div>
+    </section>
+
+    <section class="trust-section" aria-label="Why Deyo Contractors">
+      <div class="container focus-grid">
+        ${sp.trust.map(([t, d]) => `
+        <div class="focus">
+          <span class="focus-num">${esc(t)}</span>
+          <p>${esc(d)}</p>
+        </div>`).join('')}
+      </div>
+    </section>
+
+    <section class="section services" id="more-services">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">${esc(sp.more.eyebrow)}</p>
+          <h2>${esc(sp.more.heading)}</h2>
+        </div>
+        <div class="service-grid">
+          ${sp.more.sections.map((m) => `
+          <article class="service svc-card" id="${m.id}">
+            ${L.slot(m.photo, 'svc-photo', m.photoAlt)}
+            <div class="service-icon">${L.icons[m.icon] || L.icons.star}</div>
+            <h3>${esc(m.title)}</h3>
+            <p>${esc(m.text)}</p>
+            <ul class="svc-list">${m.items.map((i) => `<li>${esc(i)}</li>`).join('')}</ul>
+            <a href="#quote" class="text-link">Get a free quote ${L.icons.arrow}</a>
+          </article>`).join('')}
+        </div>
+      </div>
+    </section>
+
+    ${L.ctaBand(null, sp.cta)}
+    ${L.contactSection(null, 'project')}
+`;
+write('services/index.html', page({
+  root: '../',
+  path: '/services/',
+  title: `Services & Pricing | ${b.name}`,
+  description: `Custom logo entrance gate packages, 8' corrugated metal fences, fencing, decking and construction from ${b.name}. Licensed Arkansas contractor serving Heber Springs. Call ${b.phone}.`,
+  jsonLd: L.localBusiness(),
+  body: servicesBody,
 }));
 
 /* -------------------------- Service areas index -------------------------- */
@@ -288,7 +399,7 @@ cities.forEach((c) => {
 });
 
 /* ------------------------------ Sitemap ------------------------------ */
-const urls = ['/', '/gallery/', '/service-areas/', ...cities.map((c) => `/service-areas/${c.slug}/`)];
+const urls = ['/', '/services/', '/gallery/', '/service-areas/', ...cities.map((c) => `/service-areas/${c.slug}/`)];
 write('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map((u) => `  <url><loc>${b.site}${u}</loc></url>`).join('\n')}

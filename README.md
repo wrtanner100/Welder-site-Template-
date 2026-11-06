@@ -11,6 +11,7 @@ It's plain HTML, CSS and a little JavaScript. There are no frameworks and no dep
 | Page | What's on it |
 | --- | --- |
 | `/` | Full-screen hero photo with a headline and Call Now / Free Quote buttons, reviews right below the hero, a scrolling highlights ticker, service boxes, featured projects, a "Why choose us" section with stats and an award badge, service areas, a call-to-action banner and a quote form |
+| `/services/` | Services & pricing: featured entrance gate packages and corrugated metal fence (prices in `servicesPage` in `src/data.js`), trust points, fencing/decking/construction cards, and a project quote form |
 | `/gallery/` | Photo gallery with filter buttons and a tap-to-enlarge viewer (arrow keys and Esc work) |
 | `/service-areas/` | All the towns you serve |
 | `/service-areas/<town>/` | One page per town with local copy, which helps local search rankings |
