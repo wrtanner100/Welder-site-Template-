@@ -5,38 +5,40 @@
 // ============================================================================
 
 const business = {
-  name: 'Your Business Name',
+  name: 'Deyo Contractors',
+  // Text shown where the logo goes until the real logo file is ready (see src/layout.js).
+  logoText: { name: 'DEYO', sub: 'Contractors' },
   // Used in friendly sentences like "Call or text our team".
-  contactName: 'our team',
+  contactName: 'Deyo Contractors',
   // Three short words or phrases. Shown in the About section and footer.
-  tagline: ['Quality.', 'Reliability.', 'Trust.'],
-  phone: '(555) 123-4567',
-  phoneHref: 'tel:+15551234567',
-  email: 'hello@yourbusiness.com',
-  street: '123 Main Street',
-  city: 'Your City',
-  region: 'ST',
-  zip: '00000',
+  tagline: ['Straight lines.', 'Solid posts.', 'Honest work.'],
+  phone: '(501) 270-1816',
+  phoneHref: 'tel:+15012701816',
+  email: 'deyocontractors@icloud.com',
+  street: '508 E Booth Rd',
+  city: 'Searcy',
+  region: 'AR',
+  zip: '72143',
   country: 'US',
-  site: 'https://www.yourbusiness.com', // no trailing slash
-  hours: 'Mon–Fri 8 AM – 5 PM',
-  hoursNote: 'Emergency service available', // set to '' to hide
-  // Structured data for Google. Match it to `hours` above.
-  openingHours: [{ days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '08:00', closes: '17:00' }],
+  site: 'https://deyocontractors.com', // no trailing slash
+  hours: 'Call or text for availability',
+  hoursNote: 'Free estimates', // set to '' to hide
+  // Structured data for Google. Fill in once regular hours are confirmed.
+  openingHours: [],
   // schema.org type: LocalBusiness, Plumber, Electrician, HVACBusiness, HomeAndConstructionBusiness,
   // AutoRepair, BeautySalon, Dentist, CleaningService (use LocalBusiness if unsure).
-  schemaType: 'LocalBusiness',
+  schemaType: 'HomeAndConstructionBusiness',
   years: '[X]+',
   // Licence, certification or insurance line. Set `credential` to null to hide it everywhere.
   credential: {
-    short: 'Licensed & Insured',
-    long: 'Fully licensed and insured. License #[000000]',
+    short: 'Licensed AR Contractor',
+    long: 'Arkansas Contractor License #0478850127',
   },
   // An award or badge (e.g. "Best of" a directory, "Top Rated", a local award). Set to null to hide.
-  award: { top: 'Best of', name: '[Award]', url: '' },
-  reviewsUrl: 'https://www.google.com/search?q=Your+Business+Name+reviews',
+  award: null,
+  reviewsUrl: 'https://www.google.com/search?q=Deyo+Contractors+Heber+Springs+AR+reviews',
   social: {
-    facebook: '',
+    facebook: 'https://www.facebook.com/1939870462954088',
     instagram: '',
     yelp: '',
     google: '',
@@ -48,37 +50,37 @@ const business = {
 
 // Page copy. Keep headlines short; the design is built around them.
 const copy = {
-  description: 'Short one-sentence description of the business for search engines and the footer.',
+  description: 'Fence and gate installation, repair and staining for homes, farms and businesses in Heber Springs and surrounding Arkansas towns.',
   hero: {
     rating: '[#] Google reviews', // five stars are added automatically
     // Three lines. The third line is shown in the accent color.
-    lines: ['Your Main Service', '& Second Service in', 'Your City & Nearby Areas'],
-    lead: 'One or two sentences on what you do and why people pick you. Mention the area you serve.',
-    trust: ['Licensed & insured', '[X]+ years', 'Free quotes'],
+    lines: ['Fences & Gates', 'Built Right in', 'Heber Springs & Beyond'],
+    lead: 'Privacy fences, custom gates and decorative fencing for homes and businesses across Heber Springs and the surrounding Arkansas towns. Set straight, built solid, priced fairly.',
+    trust: ['Licensed AR contractor', 'Residential & commercial', 'Free estimates'],
   },
-  band: ['No job too small', 'Free quotes', 'Locally owned', 'Fast response', 'Satisfaction guaranteed'],
+  band: ['Privacy fences', 'Custom gates', 'Pool & pet fencing', 'Repairs & staining', 'Free estimates'],
   services: {
     eyebrow: 'What We Do',
-    heading: 'Everything you need, done right the first time',
-    text: 'A sentence or two summarising the full range of work you take on.',
+    heading: 'Fences and gates, done right the first time',
+    text: 'From a backyard privacy fence to a secure commercial gate, we handle the layout, materials and installation start to finish.',
     helpHeading: 'Not sure what you need?',
-    helpText: 'Send a photo or give us a call. Free quotes, no job too small.',
+    helpText: 'Send a photo of your yard or property line, or give us a call. Estimates are free.',
   },
   works: { heading: 'Our Previous Works', button: 'View Projects' },
   about: {
-    eyebrow: 'Why Choose Us',
-    text: 'Tell your story in two or three sentences: who runs the business, how long you’ve been at it, and what customers can count on.',
+    eyebrow: 'Why Choose Deyo',
+    text: 'Deyo Contractors builds fences and gates for homes, farms and businesses in Heber Springs and the surrounding area. We use durable materials, set every post properly, and treat each property like our own.',
     bullets: [
-      ['Licensed & accountable.', 'Fully licensed and insured, so the job is done properly.'],
-      ['We show up.', 'On time, with the right tools, and we keep you updated.'],
-      ['No job too small.', 'Small repairs and big projects get the same care.'],
-      ['Free quotes.', 'Straight pricing up front, no surprises.'],
+      ['Licensed in Arkansas.', 'State contractor license #0478850127.'],
+      ['Built to last.', 'Quality materials and posts set deep, so your fence stays straight for years.'],
+      ['Residential & commercial.', 'Backyards, pools, pastures, storefronts and job sites.'],
+      ['Free estimates.', 'Clear, up-front pricing before any work begins.'],
     ],
     // [value, label]. A plain number like '25+' animates (counts up) on scroll.
     stats: [
-      ['[X]+', 'Years in business'],
-      ['[#]+', '5-star reviews'],
-      ['100%', 'Satisfaction focus'],
+      ['2013', 'Established'],
+      ['[#]+', 'Fences & gates built'],
+      ['Free', 'On-site estimates'],
     ],
   },
   reviews: {
@@ -88,26 +90,26 @@ const copy = {
   },
   areas: {
     eyebrow: 'Service Areas',
-    heading: 'Serving Your City & the surrounding area',
-    pageHeading: 'Proudly serving Your City and nearby communities',
-    pageLead: 'Based in Your City, we cover the surrounding area. Pick your town.',
-    notListed: 'Don’t see your town? Call us. We go where the job is.',
-    featuredLabel: 'Most requested',
+    heading: 'Serving Heber Springs & the surrounding area',
+    pageHeading: 'Proudly serving Heber Springs and nearby Arkansas towns',
+    pageLead: 'We build fences and gates throughout Heber Springs, Cleburne County and the surrounding towns. Pick yours.',
+    notListed: 'Don’t see your town? Call us. We travel throughout central Arkansas.',
+    featuredLabel: 'Primary service area',
   },
-  cta: { heading: 'Ready to get started', button: 'Get a Free Quote' },
+  cta: { heading: 'Ready for a new fence', button: 'Get a Free Estimate' },
   quote: {
-    eyebrow: 'Free Quote',
-    heading: 'Tell us what you need',
-    text: 'Fill this out and your email app opens with everything ready to send. Or just call.',
-    placeholder: 'e.g. A short description of the job',
-    extraOptions: ['Emergency service', 'Something else'],
+    eyebrow: 'Free Estimate',
+    heading: 'Tell us about your project',
+    text: 'Fill this out and your email app opens with everything ready to send. Or just call or text.',
+    placeholder: 'e.g. About 200 ft of 6 ft wood privacy fence with one walk gate',
+    extraOptions: ['Chain-link fence', 'Something else'],
   },
   gallery: {
     heading: 'Recent projects',
-    lead: 'A few recent jobs from around Your City. Tap any photo to see it bigger.',
+    lead: 'A few recent fences and gates from around Heber Springs. Tap any photo to see it bigger.',
   },
   city: {
-    heading: (c) => `Our Services in ${c}`,
+    heading: (c) => `Fence & Gate Installation in ${c}`,
     focusHeading: (c) => `What ${c} calls us for`,
     servicesHeading: (c) => `Everything we offer, in ${c}`,
   },
@@ -115,53 +117,73 @@ const copy = {
 
 // Service boxes. Icons: wrench, tools, home, shield, star, clock, truck, spark, leaf.
 const services = [
-  { id: 'repairs', title: 'Repairs', icon: 'wrench', text: 'Describe this service in one or two sentences: what it covers and who it’s for.' },
-  { id: 'installations', title: 'Installations', icon: 'tools', text: 'Describe this service in one or two sentences: what it covers and who it’s for.' },
-  { id: 'maintenance', title: 'Maintenance', icon: 'shield', text: 'Describe this service in one or two sentences: what it covers and who it’s for.' },
-  { id: 'consultations', title: 'Consultations', icon: 'star', text: 'Describe this service in one or two sentences: what it covers and who it’s for.' },
-  { id: 'emergency', title: 'Emergency Service', icon: 'clock', text: 'Describe this service in one or two sentences: what it covers and who it’s for.' },
+  { id: 'privacy-fences', title: 'Privacy Fences', icon: 'home', text: 'Wood, vinyl and metal privacy fences built to your height and style, with clean lines and properly set posts.' },
+  { id: 'custom-gates', title: 'Custom Gates', icon: 'tools', text: 'Walk gates, double drive gates and secure commercial gates, built to swing true and latch every time.' },
+  { id: 'decorative-fences', title: 'Decorative Fences', icon: 'star', text: 'Ornamental and decorative fencing that adds security and curb appeal, matched to your home.' },
+  { id: 'pool-pet-fences', title: 'Pool & Pet Enclosures', icon: 'shield', text: 'Pool fences and gates built to local safety codes, and secure enclosures that keep pets safely in the yard.' },
+  { id: 'repair-staining', title: 'Repair & Staining', icon: 'wrench', text: 'Leaning posts, broken pickets and sagging gates fixed, plus staining that protects wood from weather and insects.' },
 ];
 
 // Gallery photos live in assets/img/gallery/. `type` drives the filter buttons.
+// Add `city: 'Heber Springs'` etc. once real project photos are in.
 const gallery = [
-  { file: 'project-01.svg', caption: 'Project description', city: 'Your City', type: 'Residential' },
-  { file: 'project-02.svg', caption: 'Project description', city: 'Nearby Town', type: 'Commercial' },
-  { file: 'project-03.svg', caption: 'Project description', city: 'Your City', type: 'Residential' },
-  { file: 'project-04.svg', caption: 'Project description', city: 'Another Town', type: 'Commercial' },
-  { file: 'project-05.svg', caption: 'Project description', city: 'Your City', type: 'Residential' },
-  { file: 'project-06.svg', caption: 'Project description', city: 'Neighboring City', type: 'Residential' },
+  { file: 'project-01.svg', caption: 'Wood privacy fence', type: 'Residential' },
+  { file: 'project-02.svg', caption: 'Commercial security gate', type: 'Commercial' },
+  { file: 'project-03.svg', caption: 'Custom drive gate', type: 'Residential' },
+  { file: 'project-04.svg', caption: 'Chain-link enclosure', type: 'Commercial' },
+  { file: 'project-05.svg', caption: 'Pool fence and gate', type: 'Residential' },
+  { file: 'project-06.svg', caption: 'Decorative metal fence', type: 'Residential' },
 ];
 
 // Hero background: drop in assets/img/hero.jpg. Until then the fallback shows.
 const heroPhoto = 'hero.jpg';
 const heroFallback = 'placeholder/hero.svg';
 const works = [
-  { title: 'Featured Project', photo: 'gallery/project-01.svg' },
-  { title: 'Featured Project', photo: 'gallery/project-02.svg' },
-  { title: 'Featured Project', photo: 'gallery/project-03.svg' },
+  { title: 'Privacy Fences', photo: 'gallery/project-01.svg' },
+  { title: 'Custom Gates', photo: 'gallery/project-02.svg' },
+  { title: 'Decorative Fencing', photo: 'gallery/project-03.svg' },
 ];
 const aboutPhoto = 'gallery/project-04.svg';
 
 // Reviews shown on every page. Paste REAL reviews word for word, with the reviewer's name
 // as it appears on the review site. Never invent reviews.
 const reviews = [
-  { quote: 'Paste a real customer review here, word for word. Short and specific works best.', name: 'Customer Name', source: 'Google review' },
-  { quote: 'Paste a real customer review here, word for word. Short and specific works best.', name: 'Customer Name', source: 'Google review' },
-  { quote: 'Paste a real customer review here, word for word. Short and specific works best.', name: 'Customer Name', source: 'Google review' },
+  { quote: '[Paste a real customer review here, word for word.]', name: '[Customer Name]', source: 'Google review' },
+  { quote: '[Paste a real customer review here, word for word.]', name: '[Customer Name]', source: 'Google review' },
+  { quote: '[Paste a real customer review here, word for word.]', name: '[Customer Name]', source: 'Google review' },
 ];
 
 // City pages. The first city with `featured: true` gets the big card.
-const cityIntro = 'Two or three sentences about working in this city: how close you are, the kinds of customers here, and what you’re known for locally.';
 const cityFocus = [
-  ['Local need #1', 'A sentence about a common job in this city.'],
-  ['Local need #2', 'A sentence about a common job in this city.'],
-  ['Local need #3', 'A sentence about a common job in this city.'],
+  ['Privacy fences', 'Backyard privacy fences in wood, vinyl and metal, built straight and set to last.'],
+  ['Gates', 'Walk gates and drive gates that swing true, latch securely and hold up to daily use.'],
+  ['Repairs & staining', 'Leaning posts, broken pickets and weathered wood brought back into shape.'],
 ];
 const cities = [
-  { slug: 'your-city', name: 'Your City', featured: true, intro: cityIntro, focus: cityFocus, areas: ['Neighborhood A', 'Neighborhood B', 'Neighborhood C'] },
-  { slug: 'nearby-town', name: 'Nearby Town', intro: cityIntro, focus: cityFocus, areas: ['Neighborhood A', 'Neighborhood B'] },
-  { slug: 'another-town', name: 'Another Town', intro: cityIntro, focus: cityFocus, areas: ['Neighborhood A', 'Neighborhood B'] },
-  { slug: 'neighboring-city', name: 'Neighboring City', intro: cityIntro, focus: cityFocus, areas: ['Neighborhood A', 'Neighborhood B'] },
+  {
+    slug: 'heber-springs', name: 'Heber Springs', featured: true,
+    intro: 'Heber Springs is our home turf. We build privacy fences, custom gates and pool and pet enclosures for homes and businesses all over town and around Greers Ferry Lake.',
+    focus: cityFocus,
+    areas: ['Downtown', 'Greers Ferry Lake area', 'Sugar Loaf area'],
+  },
+  {
+    slug: 'greers-ferry', name: 'Greers Ferry',
+    intro: 'From lake homes to year-round properties, we install and repair fences and gates throughout Greers Ferry and the north side of the lake.',
+    focus: cityFocus,
+    areas: ['Greers Ferry', 'Higden', 'Edgemont'],
+  },
+  {
+    slug: 'quitman', name: 'Quitman',
+    intro: 'We build privacy fences, pasture gates and pet enclosures for homes and small farms in and around Quitman.',
+    focus: cityFocus,
+    areas: ['Quitman', 'Rose Bud', 'Concord'],
+  },
+  {
+    slug: 'searcy', name: 'Searcy',
+    intro: 'Our office is on East Booth Road in Searcy, and we install and repair residential and commercial fences and gates across White County.',
+    focus: cityFocus,
+    areas: ['Searcy', 'Kensett', 'Judsonia'],
+  },
 ];
 
 module.exports = { business, copy, services, gallery, heroPhoto, heroFallback, works, aboutPhoto, reviews, cities };
