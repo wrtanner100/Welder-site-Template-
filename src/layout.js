@@ -21,12 +21,10 @@ const icons = {
   instagram: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>',
 };
 
-// Logo: TEXT PLACEHOLDER for now. When the real logo is ready, drop it in assets/img/
-// (e.g. logo-white.png) and swap the <span class="logo-text"> below for:
-//   <img src="${root}assets/img/logo-white.png" alt="${esc(b.name)}" width="240" height="80" />
+// Logo: assets/img/logo.png (transparent PNG, 642x240, shown at 64px tall so it stays sharp on retina screens).
 const logo = (root) => `
 <a href="${root}" class="logo" aria-label="${esc(b.name)} home">
-  <span class="logo-text"><span class="lt-name">${esc(b.logoText.name)}</span><span class="lt-sub">${esc(b.logoText.sub)}</span></span>
+  <img src="${root}assets/img/logo.png" alt="${esc(b.name)}" width="171" height="64" />
 </a>`;
 
 const awardBadge = () => {

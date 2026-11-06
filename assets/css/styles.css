@@ -127,15 +127,9 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2
 .header-inner { display: flex; align-items: center; gap: 28px; min-height: var(--header-h); }
 
 .logo { display: inline-flex; align-items: center; text-decoration: none; flex-shrink: 0; }
-.logo img { height: 74px; width: auto; filter: drop-shadow(0 0 14px rgba(255, 255, 255, .18)); transition: transform .25s ease, filter .25s ease; }
-.logo:hover img { transform: scale(1.04); filter: drop-shadow(0 0 20px rgba(255, 255, 255, .3)); }
-.site-footer .logo img { height: 84px; }
-/* Text placeholder until the real logo file is ready (see logo() in src/layout.js) */
-.logo-text { display: flex; flex-direction: column; line-height: 1; color: var(--white); transition: opacity .2s; }
-.logo-text .lt-name { font-family: var(--font-accent); font-size: 2.3rem; letter-spacing: .06em; }
-.logo-text .lt-sub { font-size: .66rem; font-weight: 700; letter-spacing: .32em; text-transform: uppercase; color: var(--silver); margin-top: 4px; padding-top: 5px; border-top: 2px solid var(--red); }
-.logo:hover .logo-text { opacity: .85; }
-.site-footer .logo-text .lt-name { font-size: 2.7rem; }
+.logo img { height: 64px; width: auto; transition: transform .25s ease, opacity .25s ease; }
+.logo:hover img { transform: scale(1.03); }
+.site-footer .logo img { height: 72px; }
 
 .nav { margin-left: auto; }
 .nav-menu { list-style: none; display: flex; gap: 28px; margin: 0; padding: 0; }
@@ -546,9 +540,7 @@ svg { width: 1em; height: 1em; fill: none; stroke: currentColor; stroke-width: 2
 
 @media (max-width: 600px) {
   body { padding-bottom: 76px; }
-  .logo img { height: 56px; }
-  .logo-text .lt-name { font-size: 1.9rem; }
-  .logo-text .lt-sub { font-size: .58rem; letter-spacing: .26em; }
+  .logo img { height: 46px; }
   .header-inner { gap: 10px; }
   .header-cta { gap: 8px; }
   .header-cta .btn-call { padding: 11px 14px; font-size: .88rem; }

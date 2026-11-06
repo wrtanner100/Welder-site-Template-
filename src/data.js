@@ -6,8 +6,6 @@
 
 const business = {
   name: 'Deyo Contractors',
-  // Text shown where the logo goes until the real logo file is ready (see src/layout.js).
-  logoText: { name: 'DEYO', sub: 'Contractors' },
   // Used in friendly sentences like "Call or text our team".
   contactName: 'Deyo Contractors',
   // Three short words or phrases. Shown in the About section and footer.
